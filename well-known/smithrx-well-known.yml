@@ -1,0 +1,94 @@
+generated: '2026-08-02'
+method: probed
+source: live GET probes of every SmithRx host
+result: none
+summary: No /.well-known/ document was found on any SmithRx host. The two portal hosts
+  are single-page apps whose catch-all route answers HTTP 200 with an HTML shell for
+  every path — those 200s are NOT documents and were rejected. The API host and the
+  marketing site return honest 404s.
+hosts:
+- host: https://smithrx.com
+  kind: marketing site (Framer)
+  catch_all_200: false
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /sitemap.xml
+    status: 200
+    note: 319 URLs; used for site-surface discovery, not an API discovery document
+- host: https://api.mysmithrx.com
+  kind: live API host (plain-text router, "404 page not found")
+  catch_all_200: false
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /v1/openapi.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /redoc
+    status: 404
+  - path: /graphql
+    status: 404
+  - path: /health
+    status: 404
+- host: https://member.mysmithrx.com
+  kind: member portal SPA
+  catch_all_200: true
+  note: every probed path returned 200 with the same '<!doctype html>' SPA shell —
+    all rejected as false positives, no document exists
+- host: https://partner.mysmithrx.com
+  kind: broker/TPA partner portal SPA
+  catch_all_200: true
+  note: every probed path returned 200 with the same '<!doctype html>' SPA shell —
+    all rejected as false positives, no document exists
+hosts_that_do_not_resolve:
+- api.smithrx.com
+- developer.smithrx.com
+- developers.smithrx.com
+- docs.smithrx.com
+- status.smithrx.com
+- status.mysmithrx.com
+- security.smithrx.com
+additional_hosts_found:
+- host: https://trust.smithrx.com
+  kind: Vanta-hosted trust center (CNAME to cname.vantatrust.com)
+  status: 200
+  note: captured in security/smithrx-trust-center.yml; no /.well-known documents (Vanta
+    SPA catch-all)

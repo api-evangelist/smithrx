@@ -1,0 +1,68 @@
+# SmithRx
+
+> SmithRx (legal entity Smith Health, Inc.) is a pass-through pharmacy benefit manager (PBM) for self-insured employers, founded by Jake Frenz. It runs an in-house real-time pharmacy claims adjudication platform and a "Drug Pathways Engine" that routes each claim to the lowest net cost pathway across drug selection, source and pricing. SmithRx is URAC-accredited for Pharmacy Benefit Management (PBM010015).
+
+## Machine-readable API surface
+
+**SmithRx publishes no public API.** As of 2026-08-02 there is no developer portal, no API reference, no OpenAPI/Swagger document, no GraphQL endpoint, no AsyncAPI or webhook catalog, no MCP server, and no A2A agent card on any SmithRx host. `api.mysmithrx.com` is a live API host but every probed path returns a plain-text `404 page not found`; it serves the member and partner portals privately. The company's platform marketing describes "secure APIs" used to connect a customer's plan to its existing vendors — that integration surface is partner-gated and not publicly documented.
+
+This file is generated from the API Evangelist catalog record, not fetched from SmithRx.
+
+## Company
+
+- [SmithRx](https://smithrx.com/): Pharmacy benefit manager homepage.
+- [Our Story](https://smithrx.com/our-story): Founding story and the pass-through, transparency-first model.
+- [Solutions](https://smithrx.com/solutions): Drug spend reduction for self-insured employers.
+- [Drug Pathways Engine](https://smithrx.com/drug-pathways-engine): Claim routing to the lowest net cost pathway — discovery, routing, execution.
+- [Technology](https://smithrx.com/tech-prop): Platform claims, including vendor connections "through secure APIs".
+- [Leadership](https://smithrx.com/leadership)
+- [Careers](https://smithrx.com/careers)
+- [News](https://smithrx.com/news)
+- [Contact](https://smithrx.com/contact)
+
+## Applications
+
+- [Member Portal](https://smithrx.com/portal): Member prescription management ([sign in](https://member.mysmithrx.com/login)).
+- [Partner Portal](https://partner.mysmithrx.com/): Broker, TPA and consultant portal.
+- [Partner Portal Quick Start Guide](https://smithrx.com/partner-portal-quick-start-guide)
+
+## Audiences
+
+- [Employers](https://smithrx.com/employers)
+- [Brokers](https://smithrx.com/brokers)
+- [Members](https://smithrx.com/members)
+- [Pharmacies](https://smithrx.com/resources/pharmacies)
+- [Physicians](https://smithrx.com/resources/physicians)
+
+## Security, trust and compliance
+
+- [Security Protocols](https://smithrx.com/security): AES-256 at rest and in transit, SOC 2 hosting, RBAC, MFA, SSO, audit logging and anomaly detection. Also hosts the vulnerability report form.
+- [Trust Center](https://trust.smithrx.com/): Vanta-hosted; contents are rendered client-side and require a document request.
+- [URAC PBM Accreditation PBM010015](https://accreditnet.urac.org/directory/#/accreditation/PBM010015/info): Valid through 2029-02-01.
+- [Privacy Policy](https://smithrx.com/privacy-policy): HIPAA / PHI handling; last updated 2026-07-10.
+- [Terms of Service](https://smithrx.com/terms-of-service)
+
+## Regulatory and state filings
+
+- [State-Specific Documents](https://smithrx.com/state-specific-documents)
+- [State-Specific Reports](https://smithrx.com/state-specific-reports)
+- [Provider Manual](https://smithrx.com/pharmacy-forms/provider-manual)
+- [Payer Sheet](https://smithrx.com/pharmacy-forms/payer-sheet)
+- [Full Disclosure](https://smithrx.com/fulldisclosure): Pass-through contract transparency material.
+
+## Content
+
+- [Blog](https://smithrx.com/blog)
+- [Glossary](https://smithrx.com/resources/glossary)
+- [PBM Evaluation Guide](https://smithrx.com/resources/pbm-eval-guide)
+- [FAQs](https://smithrx.com/faqs)
+
+## API Evangelist catalog artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/apis.yml): APIs.json 0.20 catalog record.
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/security/smithrx-domain-security.yml): Probed TLS, HSTS, DNSSEC, CAA, SPF, DMARC.
+- [Vulnerability disclosure](https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/security/smithrx-vulnerability-disclosure.yml)
+- [Trust center](https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/security/smithrx-trust-center.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/conformance/smithrx-conformance.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/lifecycle/smithrx-lifecycle.yml)
+- [Well-known probe record](https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/well-known/smithrx-well-known.yml)

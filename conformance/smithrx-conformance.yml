@@ -1,0 +1,92 @@
+generated: '2026-08-02'
+method: searched
+source: https://smithrx.com/security, https://smithrx.com/privacy-policy, https://trust.smithrx.com/
+note: 'SmithRx publishes no machine-readable API contract, so no standard below could
+  be derived from an OpenAPI/AsyncAPI/GraphQL artifact. Every entry is either evidenced
+  from a published page or explicitly recorded as unevidenced. A false value on conforms
+  means "no public evidence found", not "known non-conformant".'
+standards:
+- id: hipaa
+  name: Health Insurance Portability and Accountability Act
+  conforms: true
+  evidence: 'Privacy policy states collection and use of personal information is "subject
+    to the requirements of the Health Insurance Portability and Accountability Act
+    (HIPAA)" and treats identifiable member health data as PHI.'
+  source: https://smithrx.com/privacy-policy
+- id: soc2
+  name: SOC 2
+  conforms: partial
+  evidence: '"SOC2 Hosting — Ensures compliance with industry standards" published on
+    the security page. Scoped to hosting; no named SmithRx Type I/II report or auditor
+    on the public surface. Reports are presumably available through the Vanta trust
+    center under NDA.'
+  source: https://smithrx.com/security
+- id: urac-pbm
+  name: URAC Pharmacy Benefit Management Accreditation
+  conforms: true
+  evidence: URAC AccreditNet directory entry PBM010015, valid through 2029-02-01, linked
+    from the SmithRx security page.
+  source: https://accreditnet.urac.org/directory/#/accreditation/PBM010015/info
+- id: openapi
+  name: OpenAPI Specification
+  conforms: false
+  evidence: No OpenAPI/Swagger document found on any host. Probed /openapi.json, /openapi.yaml,
+    /swagger.json, /v1/openapi.json, /api-docs, /docs, /redoc against smithrx.com and
+    api.mysmithrx.com — all 404.
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: No public event, streaming or webhook surface documented.
+- id: graphql
+  name: GraphQL
+  conforms: false
+  evidence: /graphql returns 404 on api.mysmithrx.com; the portal SPA hosts answer 200
+    HTML for every path (rejected as catch-all false positives).
+- id: mcp
+  name: Model Context Protocol
+  conforms: false
+  evidence: No hosted MCP server found in docs, registries, or on any SmithRx host.
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json return 404 on
+    smithrx.com and api.mysmithrx.com; the portal SPA 200s were HTML shells, not cards.
+- id: rfc9116-security-txt
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on every host, though a human vulnerability
+    report form is published at https://smithrx.com/security.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: false
+  evidence: No public OAuth surface; /.well-known/oauth-authorization-server and /.well-known/oauth-protected-resource
+    return 404. Portal sign-in uses an SSO/MFA flow that is not publicly documented.
+- id: oidc
+  name: OpenID Connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every host.
+- id: fhir-r4
+  name: HL7 FHIR R4
+  conforms: false
+  evidence: No FHIR endpoint, CapabilityStatement or resource surface published. Note
+    that as a PBM (not a payer or provider), SmithRx is not directly in scope for the
+    CMS Interoperability and Patient Access FHIR API mandates.
+- id: ncpdp-telecom-d0
+  name: NCPDP Telecommunication Standard D.0
+  conforms: unknown
+  evidence: 'SmithRx adjudicates retail pharmacy claims in real time, which in the
+    US is transacted over NCPDP D.0 via a pharmacy switch — but SmithRx publishes no
+    payer sheet, BIN/PCN/Group values or processor identifiers on its public site
+    (https://smithrx.com/pharmacy-forms/payer-sheet renders no specification content).
+    Recorded as unknown rather than asserted.'
+regulatory_context:
+- regime: HIPAA / HITECH
+  applicability: SmithRx handles PHI as a covered entity business associate for self-insured
+    employer plans.
+- regime: ERISA fiduciary / plan sponsor transparency
+  applicability: Marketed as a pass-through PBM with "full disclosure"; state PBM licensure
+    and MAC appeal policies are published per state (see smithrx.com/state-specific-documents
+    and the per-state MAC appeal pages under /pharmacy-forms).
+- regime: State PBM regulation
+  applicability: Publishes state-specific documents and reports, MAC appeal policies
+    (KY, NY, TN), NADAC filings (GA), and a Florida insurance regulation form.

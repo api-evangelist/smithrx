@@ -1,7 +1,16 @@
 aid: smithrx
 name: SmithRx
-description: 'SmithRx is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'SmithRx (legal entity Smith Health, Inc.) is a pass-through pharmacy
+  benefit manager (PBM) for self-insured employers, founded by Jake Frenz. It operates
+  its own in-house claims adjudication platform and a "Drug Pathways Engine" that
+  routes every pharmacy claim to the lowest net cost pathway across drug selection,
+  source and pricing. SmithRx sells through brokers, TPAs and benefits consultants,
+  serves members through a member portal, and serves brokers and TPAs through a
+  partner portal. It is URAC-accredited for Pharmacy Benefit Management. SmithRx
+  publishes no public developer portal, API documentation or machine-readable API
+  contract; its platform marketing describes "secure APIs" used to connect a customer
+  plan to existing vendors, but that surface is private and partner-gated.'
+image: https://framerusercontent.com/images/WlIGH06EWF670OjheE0Qs5kYuxE.jpg
 url: https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +21,14 @@ created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
+- Health Care
+- Pharmacy
+- Pharmacy Benefit Management
+- Prescription Drugs
+- Employee Benefits
+- Claims
+- Insurance
+- Health Technology
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +36,74 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/smithrx-domain-security.yml
 - type: Website
+  url: https://smithrx.com/
+- type: Blog
+  url: https://smithrx.com/blog
+- type: Support
+  url: https://smithrx.com/contact
+- type: FAQ
+  url: https://smithrx.com/faqs
+- type: TermsOfService
+  url: https://smithrx.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://smithrx.com/privacy-policy
+- type: Login
+  url: https://member.mysmithrx.com/login
+- type: MemberPortal
+  url: https://smithrx.com/portal
+- type: PartnerPortal
+  url: https://partner.mysmithrx.com/
+- type: Careers
+  url: https://smithrx.com/careers
+- type: News
+  url: https://smithrx.com/news
+- type: SecondaryMarket
   url: https://forgeglobal.com/smithrx_stock/
+- type: Security
+  url: https://smithrx.com/security
+- type: VulnerabilityDisclosure
+  url: security/smithrx-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: https://trust.smithrx.com/
+- type: Compliance
+  url: https://trust.smithrx.com/
+- type: Accreditation
+  url: https://accreditnet.urac.org/directory/#/accreditation/PBM010015/info
+- type: Conformance
+  url: conformance/smithrx-conformance.yml
+- type: Lifecycle
+  url: lifecycle/smithrx-lifecycle.yml
+- type: LLMsTxt
+  url: llms/smithrx-llms.txt
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1
+x-contract-discovery:
+  date: '2026-08-02'
+  result: no-public-api
+  note: 'Full STEP 0b contract discovery ran against every SmithRx host. No OpenAPI,
+    Swagger, GraphQL, AsyncAPI, MCP server or A2A agent card exists on any public
+    surface. api.mysmithrx.com is a live API host serving the member and partner
+    portals privately; it returns a plain-text 404 router response at every probed
+    path. member.mysmithrx.com and partner.mysmithrx.com are single-page apps whose
+    catch-all route answers HTTP 200 with an HTML shell for every path — those 200s
+    were rejected as false positives, not recorded as hits. See well-known/smithrx-well-known.yml
+    for the full probe table.'
+  hosts_probed:
+  - smithrx.com
+  - api.mysmithrx.com
+  - member.mysmithrx.com
+  - partner.mysmithrx.com
+  - trust.smithrx.com
+  registries_searched:
+  - npm
+  - PyPI
+  - RubyGems
+  - crates.io
+  - Packagist
+  - GitHub (no smithrx organization)

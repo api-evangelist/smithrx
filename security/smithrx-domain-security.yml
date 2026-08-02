@@ -1,0 +1,62 @@
+generated: '2026-08-02'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml hosts plus the mysmithrx.com application
+  and API hosts discovered during contract discovery
+hosts:
+- host: smithrx.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 10 14:03:18 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.mysmithrx.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb 13 23:59:59 2027 GMT
+  hsts: false
+  note: live API host; returns a plain-text "404 page not found" router response at
+    every probed path (no public routes, no spec, no /.well-known)
+- host: member.mysmithrx.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar  7 23:59:59 2027 GMT
+  hsts: false
+  note: member portal single-page app; answers 200 with an HTML shell for every path
+- host: partner.mysmithrx.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar  7 23:59:59 2027 GMT
+  hsts: false
+  note: broker/TPA partner portal single-page app; answers 200 with an HTML shell
+    for every path
+domains:
+- domain: smithrx.com
+  dnssec: false
+  caa:
+  - 0 issue "pki.goog"
+  - 0 issue "sectigo.com"
+  - 0 issue "amazon.com"
+  - 0 issue "amazonaws.com"
+  - 0 issue "amazontrust.com"
+  - 0 issue "awstrust.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: mysmithrx.com
+  dnssec: false
+  caa:
+  - 0 issue "amazonaws.com"
+  - 0 issue "digicert.com"
+  - 0 issue "letsencrypt.org"
+  - 0 issue "pki.goog"
+  - 0 issue "amazon.com"
+  spf: true
+  dmarc: false
+  dmarc_policy: null
+  note: no DMARC record published for the application/API domain
+findings:
+- HSTS is enforced on the marketing site (smithrx.com, max-age 31536000) but is absent
+  on all three mysmithrx.com application and API hosts.
+- DMARC is published for smithrx.com (p=quarantine) but not for mysmithrx.com.
+- DNSSEC is not enabled on either registrable domain.
+- CAA is published on both registrable domains.
