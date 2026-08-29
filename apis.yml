@@ -10,6 +10,17 @@ description: 'SmithRx (legal entity Smith Health, Inc.) is a pass-through pharma
   publishes no public developer portal, API documentation or machine-readable API
   contract; its platform marketing describes "secure APIs" used to connect a customer
   plan to existing vendors, but that surface is private and partner-gated.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://framerusercontent.com/images/WlIGH06EWF670OjheE0Qs5kYuxE.jpg
 url: https://raw.githubusercontent.com/api-evangelist/smithrx/refs/heads/main/apis.yml
 x-type: company
